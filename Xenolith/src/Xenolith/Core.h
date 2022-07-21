@@ -12,4 +12,15 @@
 
 #endif
 
+
+#ifdef XL_ENABLE_ASSERTS
+#define XL_ASSERT(x, ...) { if(!(x)) { XL_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#define XL_CORE_ASSERT(x, ...) { if(!(x)) { XL_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+#define XL_ASSERT(x, ...)
+#define XL_CORE_ASSERT(x, ...)
+#endif
+
+
+
 #define BIT(x) (1 << x)

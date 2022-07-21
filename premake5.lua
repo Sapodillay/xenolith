@@ -11,6 +11,13 @@ workspace "Xenolith"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Xenolith/vendor/GLFW/include"
+IncludeDir["spdlog"] = "Xenolith/vendor/spdlog/include"
+
+include "Xenolith/vendor/GLFW"
+
+
 project "Xenolith"
 	location "Xenolith"
 	kind "SharedLib"
@@ -31,8 +38,16 @@ project "Xenolith"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{IncludeDir.spdlog}",
+		"%{IncludeDir.GLFW}"
 	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
+	}
+
 
 	filter "system:windows"
 		cppdialect "C++17"
@@ -52,6 +67,7 @@ project "Xenolith"
 
 	filter "configurations:Debug"
 		defines "XL_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"

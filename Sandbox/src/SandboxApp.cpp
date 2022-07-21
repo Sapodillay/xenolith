@@ -1,6 +1,4 @@
 #include <Xenolith.h>
-
-
 class Sandbox : public Xenolith::Application
 {
 public:

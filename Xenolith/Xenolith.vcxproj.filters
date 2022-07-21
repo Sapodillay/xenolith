@@ -34,6 +34,7 @@
     <ClInclude Include="src\Xenolith\Log.h">
       <Filter>Xenolith</Filter>
     </ClInclude>
+    <ClInclude Include="src\xlpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Xenolith\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Xenolith\Log.cpp">
       <Filter>Xenolith</Filter>
     </ClCompile>
+    <ClCompile Include="src\xlpch.cpp" />
   </ItemGroup>
 </Project>

@@ -19,6 +19,9 @@ project "Xenolith"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "xlpch.h"
+	pchsource "Xenolith/src/xlpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

@@ -1,3 +1,5 @@
+#include "xlpch.h"
+
 #include "Log.h"
 
 namespace Xenolith {
